@@ -26,6 +26,7 @@
 #import "FPItem.h"
 #import "FPLink.h"
 #import "NSDate_FeedParserExtensions.h"
+#import "FPEnclosure.h"
 
 @interface FPItem ()
 @property (nonatomic, copy, readwrite) NSString *title;
@@ -36,10 +37,11 @@
 - (void)rss_pubDate:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser;
 - (void)rss_link:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser;
 - (void)atom_link:(NSDictionary *)attributes parser:(NSXMLParser *)parser;
+- (void)rss_enclosure:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser;
 @end
 
 @implementation FPItem
-@synthesize title, link, links, guid, content, pubDate;
+@synthesize title, link, links, guid, content, pubDate, enclosure;
 @synthesize creator;
 
 + (void)initialize {
@@ -49,7 +51,8 @@
 		[self registerHandler:@selector(setGuid:) forElement:@"guid" namespaceURI:@"" type:FPXMLParserTextElementType];
 		[self registerHandler:@selector(setContent:) forElement:@"description" namespaceURI:@"" type:FPXMLParserTextElementType];
 		[self registerHandler:@selector(rss_pubDate:attributes:parser:) forElement:@"pubDate" namespaceURI:@"" type:FPXMLParserTextElementType];
-		for (NSString *key in [NSArray arrayWithObjects:@"author", @"category", @"comments", @"enclosure", @"source", nil]) {
+		[self registerHandler:@selector(rss_enclosure:attributes:parser:) forElement:@"enclosure" namespaceURI:@"" type:FPXMLParserTextElementType];
+		for (NSString *key in [NSArray arrayWithObjects:@"author", @"category", @"comments", @"source", nil]) {
 			[self registerHandler:NULL forElement:key namespaceURI:@"" type:FPXMLParserSkipElementType];
 		}
 		// Atom
@@ -83,6 +86,12 @@
 	[aLink release];
 }
 
+- (void)rss_enclosure:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser {	
+	FPEnclosure *anEnclosure = [[FPEnclosure alloc] initWithURL:[attributes objectForKey:@"url"] type:[attributes objectForKey:@"type"] length:[attributes objectForKey:@"length"]];
+	enclosure = [anEnclosure retain];
+	[anEnclosure release];
+}
+
 - (void)atom_link:(NSDictionary *)attributes parser:(NSXMLParser *)parser {
 	NSString *href = [attributes objectForKey:@"href"];
 	if (href == nil) return; // sanity check
@@ -98,6 +107,7 @@
 - (void)dealloc {
 	[title release];
 	[link release];
+	[enclosure release];
 	[links release];
 	[guid release];
 	[content release];

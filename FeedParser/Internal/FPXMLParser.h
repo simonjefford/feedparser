@@ -50,7 +50,7 @@ extern NSString * const kFPXMLParserContentNamespaceURI;
 	NSUInteger parseDepth;
 	SEL currentHandlerSelector;
 }
-@property (nonatomic, readonly) NSArray *extensionElements;
+@property (nonatomic, readonly) NSMutableArray *extensionElements;
 + (void)registerHandler:(SEL)selector forElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI type:(FPXMLParserElementType)type;
 - (id)initWithBaseNamespaceURI:(NSString *)namespaceURI;
 - (void)abortParsing:(NSXMLParser *)parser;

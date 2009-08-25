@@ -31,6 +31,7 @@
 
 @interface FPFeed ()
 @property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, copy, readwrite) NSString *category;
 @property (nonatomic, copy, readwrite) NSString *feedDescription;
 @property (nonatomic, copy, readwrite) NSDate *pubDate;
 - (void)rss_pubDate:(NSString *)textValue attributes:(NSDictionary *)attributes parser:(NSXMLParser *)parser;
@@ -40,7 +41,7 @@
 @end
 
 @implementation FPFeed
-@synthesize title, link, links, feedDescription, pubDate, items;
+@synthesize title, category, link, links, feedDescription, pubDate, items;
 
 + (void)initialize {
 	if (self == [FPFeed class]) {
@@ -48,8 +49,9 @@
 		[self registerHandler:@selector(rss_link:attributes:parser:) forElement:@"link" namespaceURI:@"" type:FPXMLParserTextElementType];
 		[self registerHandler:@selector(setFeedDescription:) forElement:@"description" namespaceURI:@"" type:FPXMLParserTextElementType];
 		[self registerHandler:@selector(rss_pubDate:attributes:parser:) forElement:@"pubDate" namespaceURI:@"" type:FPXMLParserTextElementType];
+		[self registerHandler:@selector(setCategory:) forElement:@"category" namespaceURI:@"" type:FPXMLParserTextElementType];
 		for (NSString *key in [NSArray arrayWithObjects:
-							   @"language", @"copyright", @"managingEditor", @"webMaster", @"lastBuildDate", @"category",
+							   @"language", @"copyright", @"managingEditor", @"webMaster", @"lastBuildDate", //@"category",
 							   @"generator", @"docs", @"cloud", @"ttl", @"image", @"rating", @"textInput", @"skipHours", @"skipDays", nil]) {
 			[self registerHandler:NULL forElement:key namespaceURI:@"" type:FPXMLParserSkipElementType];
 		}
@@ -105,6 +107,7 @@
 
 - (void)dealloc {
 	[title release];
+	[category release];
 	[link release];
 	[links release];
 	[feedDescription release];

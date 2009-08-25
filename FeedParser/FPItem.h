@@ -27,6 +27,7 @@
 #import "FPXMLParser.h"
 
 @class FPLink;
+@class FPEnclosure;
 
 @interface FPItem : FPXMLParser {
 @private
@@ -37,6 +38,7 @@
 	NSString *content;
 	NSDate *pubDate;
 	NSString *creator; // <dc:creator>
+	FPEnclosure *enclosure;
 }
 @property (nonatomic, copy, readonly) NSString *title;
 // RSS <link> or Atom <link rel="alternate">
@@ -49,6 +51,7 @@
 @property (nonatomic, copy, readonly) NSString *content;
 @property (nonatomic, copy, readonly) NSString *creator; // <dc:creator>
 @property (nonatomic, copy, readonly) NSDate *pubDate;
+@property (nonatomic, copy, readonly) FPEnclosure *enclosure;
 // parent class defines property NSArray *extensionElements
 // parent class defines method - (NSArray *)extensionElementsWithXMLNamespace:(NSString *)namespaceURI
 // parent class defines method - (NSArray *)extensionElementsWithXMLNamespace:(NSString *)namespaceURI elementName:(NSString *)elementName

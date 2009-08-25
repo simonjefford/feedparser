@@ -35,10 +35,12 @@
 	FPLink *link;
 	NSMutableArray *links;
 	NSString *feedDescription;
+	NSString *category;
 	NSDate *pubDate;
 	NSMutableArray *items;
 }
 @property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic, copy, readonly) NSString *category;
 // RSS <link> or Atom <link rel="alternate">
 // If multiple qualifying links exist, the first is returned
 @property (nonatomic, copy, readonly) FPLink *link;
@@ -47,7 +49,7 @@
 @property (nonatomic, copy, readonly) NSArray *links;
 @property (nonatomic, copy, readonly) NSString *feedDescription;
 @property (nonatomic, copy, readonly) NSDate *pubDate;
-@property (nonatomic, retain, readonly) NSArray *items;
+@property (nonatomic, retain, readonly) NSMutableArray *items;
 // parent class defines property NSArray *extensionElements
 // parent class defines method -(NSArray *)extensionElementsWithXMLNamespace:(NSString *)namespaceURI
 // parent class defines method - (NSArray *)extensionElementsWithXMLNamespace:(NSString *)namespaceURI elementName:(NSString *)elementName

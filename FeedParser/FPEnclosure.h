@@ -1,9 +1,8 @@
 //
-//  FeedParser.h
-//  FeedParser
+//  FPEncslosure.h
 //
-//  Created by Kevin Ballard on 4/3/09.
-//  Copyright 2009 Kevin Ballard. All rights reserved.
+//  Created by Patrick O'Shaughnessey on 8/24/09.
+//  Copyright 2009 Patched Reality. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +22,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#import "FPParser.h"
-#import "FPFeed.h"
-#import "FPItem.h"
-#import "FPLink.h"
-#import "FPEnclosure.h"
-#import "FPErrors.h"
-#import "FPExtensionNode.h"
+#import <Foundation/Foundation.h>
+
+
+@interface FPEnclosure : NSObject {
+@private
+	NSString *url;
+	NSString *type;
+	NSNumber *length;
+}
+@property (nonatomic, readonly) NSString *url;
+@property (nonatomic, readonly) NSString *type; // the value of the type attribute or nil
+@property (nonatomic, readonly) NSNumber *length; // the value of the length or nil
++ (id)enclosureWithURL:(NSString *)url type:(NSString *)type length:(NSNumber *)length;
+- (id)initWithURL:(NSString *)url type:(NSString *)type length:(NSNumber *)length;
+@end
