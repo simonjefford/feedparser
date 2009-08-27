@@ -146,4 +146,14 @@
 	[parent abortParsing:parser withString:description];
 }
 
+- (NSArray *)childElementsWithElementName:(NSString *)elementName {
+	NSMutableArray *returnElements = [NSMutableArray arrayWithCapacity:[children count]];
+	for (FPExtensionNode *node in children) {
+		if ([node.name isEqualToString:elementName]) {
+			[returnElements addObject:node];
+		}
+	}
+	return returnElements;
+}
+
 @end

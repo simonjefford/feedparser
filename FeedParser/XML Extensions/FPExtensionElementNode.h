@@ -42,4 +42,7 @@
 }
 - (id)initWithElementName:(NSString *)name namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 			   attributes:(NSDictionary *)attributeDict;
+
+- (NSArray *)childElementsWithElementName:(NSString *)elementName;
+
 @end

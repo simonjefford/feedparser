@@ -51,7 +51,7 @@
 		[self registerHandler:@selector(rss_pubDate:attributes:parser:) forElement:@"pubDate" namespaceURI:@"" type:FPXMLParserTextElementType];
 		[self registerHandler:@selector(setCategory:) forElement:@"category" namespaceURI:@"" type:FPXMLParserTextElementType];
 		for (NSString *key in [NSArray arrayWithObjects:
-							   @"language", @"copyright", @"managingEditor", @"webMaster", @"lastBuildDate", //@"category",
+							   @"language", @"copyright", @"managingEditor", @"webMaster", @"lastBuildDate",
 							   @"generator", @"docs", @"cloud", @"ttl", @"image", @"rating", @"textInput", @"skipHours", @"skipDays", nil]) {
 			[self registerHandler:NULL forElement:key namespaceURI:@"" type:FPXMLParserSkipElementType];
 		}
