@@ -146,10 +146,10 @@
 	[parent abortParsing:parser withString:description];
 }
 
-- (NSArray *)childElementsWithElementName:(NSString *)elementName {
+- (NSArray *)extensionElementsWithXMLNamespace:(NSString *)aNamespaceURI elementName:(NSString *)elementName {
 	NSMutableArray *returnElements = [NSMutableArray arrayWithCapacity:[children count]];
 	for (FPExtensionNode *node in children) {
-		if ([node.name isEqualToString:elementName]) {
+		if ([node.name isEqualToString:elementName] && [node.namespaceURI isEqualToString:aNamespaceURI]) {
 			[returnElements addObject:node];
 		}
 	}

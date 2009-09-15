@@ -227,9 +227,7 @@ void (*handleSkipElement)(id, SEL, NSDictionary*, NSXMLParser*) = (void(*)(id, S
 						}
 						break;
 				}
-//			} else if ([namespaceURI isEqualToString:baseNamespaceURI]) {
-//				[self abortParsing:parser];
-			} else if (![namespaceURI isEqualToString:kFPXMLParserAtomNamespaceURI] //&& ![namespaceURI isEqualToString:@""]non
+			} else if (![namespaceURI isEqualToString:kFPXMLParserAtomNamespaceURI]
 					   ) {				// element is unknown and belongs to neither the Atom nor RSS namespaces
 				FPExtensionElementNode *node = [[FPExtensionElementNode alloc] initWithElementName:elementName namespaceURI:namespaceURI
 																					 qualifiedName:qualifiedName attributes:attributeDict];
