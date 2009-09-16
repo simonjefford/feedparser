@@ -38,6 +38,8 @@
 		0AACF27F0F8AC1540061AEB8 /* FeedParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACF27E0F8AC1540061AEB8 /* FeedParserTest.m */; };
 		0AAF74D40F8AEE3800120935 /* RFC822Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF74D30F8AEE3800120935 /* RFC822Test.m */; };
 		F422055B106113D300D1342B /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = F422055A106113D300D1342B /* FPEnclosure.m */; };
+		F42205741061156600D1342B /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = F422055A106113D300D1342B /* FPEnclosure.m */; };
+		F42205A11061174500D1342B /* rss-with-enclosures.rss in Resources */ = {isa = PBXBuildFile; fileRef = F42205A01061174500D1342B /* rss-with-enclosures.rss */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,7 @@
 		0AD2F7350F9044C800D7CAF1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F4220559106113D300D1342B /* FPEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPEnclosure.h; sourceTree = "<group>"; };
 		F422055A106113D300D1342B /* FPEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPEnclosure.m; sourceTree = "<group>"; };
+		F42205A01061174500D1342B /* rss-with-enclosures.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "rss-with-enclosures.rss"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 		0AACF26C0F8AC0810061AEB8 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				F42205A01061174500D1342B /* rss-with-enclosures.rss */,
 				0AACF26D0F8AC0810061AEB8 /* sample-rss-091.rss */,
 				0AACF26E0F8AC0810061AEB8 /* sample-rss-092.rss */,
 				0AACF26F0F8AC0810061AEB8 /* sample-rss-2.rss */,
@@ -286,6 +290,7 @@
 				0AACF2720F8AC0810061AEB8 /* sample-rss-2.rss in Resources */,
 				0A5C3ACA0F8EAE3800106D24 /* extensions.rss in Resources */,
 				0A5C3BF40F901AF100106D24 /* rss-with-atom.rss in Resources */,
+				F42205A11061174500D1342B /* rss-with-enclosures.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +343,7 @@
 				0A9BB99E0F8ACCF200CB5F5D /* FPXMLParser.m in Sources */,
 				0A9BB9A40F8AD58800CB5F5D /* FPXMLPair.m in Sources */,
 				0A9BB9F50F8AE19000CB5F5D /* NSDate_FeedParserExtensions.m in Sources */,
+				F42205741061156600D1342B /* FPEnclosure.m in Sources */,
 				0AAF74D40F8AEE3800120935 /* RFC822Test.m in Sources */,
 				0A5C39C80F8E981100106D24 /* FPExtensionElementNode.m in Sources */,
 				0A5C39D20F8E999A00106D24 /* FPExtensionNode.m in Sources */,

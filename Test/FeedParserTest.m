@@ -101,6 +101,16 @@ us fly through the Solar System more quickly.  The proposed VASIMR engine would 
 	STAssertEqualObjects([[[item extensionElementsWithXMLNamespace:@"uri:fake" elementName:@"empty"] objectAtIndex:0] name], @"empty", nil);
 }
 
+- (void)testEnclosures {
+    FPFeed *feed = [self feedFromFixture:@"rss-with-enclosures.rss"];
+    FPItem *item = [feed.items objectAtIndex:0];
+    FPEnclosure *enclosure = item.enclosure;
+    STAssertTrue(enclosure != nil, nil);
+    STAssertEqualObjects(enclosure.url, @"http://example.com/coolpodcast.mp3", nil);
+    STAssertEqualObjects(enclosure.type, @"audio/mp3", nil);
+    STAssertEquals(enclosure.length.intValue, 10000, nil);
+}
+
 - (void)testLinks {
 	FPFeed *feed = [self feedFromFixture:@"rss-with-atom.rss"];
 	if (feed == nil) return;
