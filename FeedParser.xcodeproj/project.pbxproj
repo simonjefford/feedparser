@@ -37,6 +37,7 @@
 		0AACF2750F8AC1350061AEB8 /* FPFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A339C990F8804E400D0F64E /* FPFeed.m */; };
 		0AACF27F0F8AC1540061AEB8 /* FeedParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AACF27E0F8AC1540061AEB8 /* FeedParserTest.m */; };
 		0AAF74D40F8AEE3800120935 /* RFC822Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF74D30F8AEE3800120935 /* RFC822Test.m */; };
+		F422055B106113D300D1342B /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = F422055A106113D300D1342B /* FPEnclosure.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		0AAF74D20F8AEE3800120935 /* RFC822Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFC822Test.h; sourceTree = "<group>"; };
 		0AAF74D30F8AEE3800120935 /* RFC822Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFC822Test.m; sourceTree = "<group>"; };
 		0AD2F7350F9044C800D7CAF1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		F4220559106113D300D1342B /* FPEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPEnclosure.h; sourceTree = "<group>"; };
+		F422055A106113D300D1342B /* FPEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPEnclosure.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 		0A339AFC0F87227500D0F64E /* FeedParser */ = {
 			isa = PBXGroup;
 			children = (
+				F4220559106113D300D1342B /* FPEnclosure.h */,
+				F422055A106113D300D1342B /* FPEnclosure.m */,
 				0A339C6D0F87267200D0F64E /* FeedParser.h */,
 				0AA74C250F8825AF007F6085 /* FPErrors.h */,
 				0AA74C0F0F881CBD007F6085 /* FPParser.h */,
@@ -318,6 +323,7 @@
 				0A5C39D90F8E9B1200106D24 /* FPExtensionTextNode.m in Sources */,
 				0A5C3C800F902A2A00106D24 /* FPLink.m in Sources */,
 				0A5C3CBB0F9031E000106D24 /* NSString_extensions.m in Sources */,
+				F422055B106113D300D1342B /* FPEnclosure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
